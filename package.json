@@ -4,9 +4,11 @@
   "description": "proyect for learn NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "lite-server"
   },
   "author": "Cleyber",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
 }
