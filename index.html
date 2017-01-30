@@ -24,7 +24,7 @@
    </header>
    <main>
       <div class="container">
-         <div id="app">
+         <!--<div id="create">
             <div class="row">
                <div id="target">
                   <div class="col s12 col m8 offset-m2">
@@ -51,13 +51,23 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
+         <section id="list">
+            <ul>
+               <li v-for="user of users">{{user.name}} <a href="#">{{user.mail}}</a></li>
+            </ul>
+         </section>
+         <section id=""></section>
+         <section id=""></section>
+         <section id=""></section>
       </div>
    </main>
-   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/vue/2.1.10/vue.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-   <script src="index.js"></script>
+   <script src="app/list.js"></script>
 
 </body>
 </html>
