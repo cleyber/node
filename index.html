@@ -15,34 +15,62 @@
          <div class="nav-wrapper"><a href="" class="brand-logo"></a>
                <ul id="nav-mobile" class="hide-onmed-and-down container right">
                   <li class="activate"><a href="index.html">Create</a></li>
-                  <li class="activate"><a href="read.html">Read</a></li>
-                  <li class="activate"><a href="update.html">Update</a></li>
-                  <li class="activate"><a href="delete.html">Delete</a></li>
+                  <li class="activate"><a href="#">Read</a></li>
+                  <li class="activate"><a href="#">Update</a></li>
+                  <li class="activate"><a href="#">Delete</a></li>
                </ul>
          </div>
       </nav>
    </header>
    <main>
       <div class="container">
-         <!--<div id="create">
+         <section id="list">
             <div class="row">
                <div id="target">
                   <div class="col s12 col m8 offset-m2">
                      <div class="card" id="target2">
                         <div class="card-content">
-                           <div class="center-align">
+                           <h4>List Users</h4>
+                           <table class="striped">
+                              <thead>
+                                 <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr v-for="user of users">
+                                    <td>{{user.name}}</td>
+                                    <td><a href="#">{{user.mail}}</a></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section id="create">
+            <div>
+               <div class="row">
+                  <div id="target">
+                     <div class="col s12 col m8 offset-m2">
+                        <div class="card" id="target2">
+                           <div class="card-content">
                               <h4>Create User</h4>
-                              <form class="" action="index.html" method="post">
+                              <form v-on:submit.prevent>
                                  <div class="input-field">
                                     <label for="name">Name</label>
-                                    <input type="text" id="name">
+                                    <input type="text" id="name" v-model="user.name">
                                  </div>
                                  <div class="input-field">
-                                    <label for="mail">Mail</label>
-                                    <input type="text" id="mail">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" v-model="user.mail">
                                  </div>
                                  <div class="center-align">
-                                    <button id="accpet" class="btn waves-effect light-green">Accept</button>
+                                    <button id="accpet" class="btn waves-effect light-green" v-on:click="addUser">Accept</button>
                                  </div>
                               </form>
                            </div>
@@ -51,15 +79,64 @@
                   </div>
                </div>
             </div>
-         </div> -->
-         <section id="list">
-            <ul>
-               <li v-for="user of users">{{user.name}} <a href="#">{{user.mail}}</a></li>
-            </ul>
          </section>
-         <section id=""></section>
-         <section id=""></section>
-         <section id=""></section>
+
+         <section id="update">
+            <div class="row">
+               <div id="target">
+                  <div class="col s12 col m8 offset-m2">
+                     <div class="card" id="target2">
+                        <div class="card-content">
+                           <h4>Update User</h4>
+                           <form v-on:submit.prevent>
+                              <div class="input-field">
+                                 <label for="name">Name</label>
+                                 <input type="text" id="name" v-model="user.name">
+                              </div>
+                              <div class="input-field">
+                                 <label for="email">Email</label>
+                                 <input type="email" id="email" v-model="user.mail">
+                              </div>
+                              <div class="center-align">
+                                 <button id="accpet" class="btn waves-effect light-green" v-on:click="addUser">Update</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <section id="delete">
+            <div class="row">
+               <div id="target">
+                  <div class="col s12 col m8 offset-m2">
+                     <div class="card" id="target2">
+                        <div class="card-content">
+                           <h4>Delete User</h4>
+                           <table class="striped">
+                              <thead>
+                                 <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th><i class="material-icons">delete</i></th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr v-for="user of users">
+                                    <td>{{user.name}}</td>
+                                    <td><a href="#">{{user.mail}}</a></td>
+                                    <td><button type="button" name="button" class="btn red waves-effect" v-on:click="deleteUser(user.id)"><i class="material-icons">delete</i></button></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
       </div>
    </main>
 
@@ -68,6 +145,8 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
    <script src="app/list.js"></script>
+   <script src="app/create.js"></script>
+   <script src="app/delete.js"></script>
 
 </body>
 </html>
