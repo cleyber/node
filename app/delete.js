@@ -3,6 +3,7 @@ new Vue({
    data: {
       users: []
    },
+
    created: function(){
       var self=this;
       axios.get('http://localhost:8081/api/v1/myresource/')
@@ -15,19 +16,16 @@ new Vue({
    },
    methods: {
       deleteUser: function(id){
+         var self=this;
          axios.delete('http://localhost:8081/api/v1/myresource/'+id)
             .then(function(response){
-               //var index = self.users.indexOf(id);
-               // for (var i = 0; i < self.users.length; i++) {
-               //    self.users[i]
-               //    console.log(self.users[i]);
-               // }
+                for (var i = 0; i < self.users.length; i++) {
+                   if(self.users[i].id == id) self.users.splice(i, 1);                   
+               }
             })
             .catch(function(error){
                console.error('Error en delete', error);
             });
-         console.log("dentro del método");
-         console.log(id);
       }
    }
 });
